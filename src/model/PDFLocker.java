@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.opencsv.CSVWriter;
 
 public class PDFLocker {
@@ -23,7 +26,7 @@ public class PDFLocker {
 			"G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
 			"T", "U", "V", "W", "X", "Y", "Z" };
 	private static Random random = new Random();
-	private  StringBuilder sb ;
+	private StringBuilder sb;
 
 	private String fileLocation;
 	private String outputLocation;
@@ -34,20 +37,21 @@ public class PDFLocker {
 	}
 
 	public void lockPDF(int count, File selectedFile, String outputLocation,
-			String ownerPassword, String optionCombo) throws IOException, DocumentException {
+			String ownerPassword, String optionCombo) throws IOException,
+			DocumentException {
 		File source = selectedFile;
 
 		String fileName = source.getName().substring(0,
 				source.getName().lastIndexOf('.'));
 		System.out.println(fileName);
 		String outputName = outputLocation;
-		String csv = outputLocation + "\\passwords.csv";
+		String csv = outputLocation + "\\"+fileName+"_passwords.csv";
 		CSVWriter writer = new CSVWriter(new FileWriter(csv));
 		List<String[]> data = new ArrayList<String[]>();
 		data.add(new String[] { "Owner password", ownerPassword });
 
 		for (int i = 0; i < count; i++) {
-			sb= new StringBuilder();
+			sb = new StringBuilder();
 			PdfReader pdfReader = new PdfReader(selectedFile.getAbsolutePath());
 
 			String tempName = outputName + "\\" + fileName + i + ".pdf";
@@ -57,10 +61,38 @@ public class PDFLocker {
 			PdfStamper pdfs = new PdfStamper(pdfReader, fos);
 			String password = generateLock();
 			if (ownerPassword.equals("")) {
-				pdfs.setEncryption(password.getBytes(), null, i, false);
+				if (optionCombo.equals("Allow user pdf options")) {
+					pdfs.setEncryption(password.getBytes(), null,
+							PdfWriter.ALLOW_PRINTING
+									| PdfWriter.ALLOW_MODIFY_CONTENTS
+									| PdfWriter.ALLOW_COPY
+									| PdfWriter.ALLOW_ASSEMBLY
+									| PdfWriter.ALLOW_FILL_IN
+									| PdfWriter.ALLOW_MODIFY_ANNOTATIONS
+									| PdfWriter.ALLOW_SCREENREADERS,
+							PdfWriter.STANDARD_ENCRYPTION_128);
+				} else {
+					pdfs.setEncryption(password.getBytes(), null, 0,
+							PdfWriter.STANDARD_ENCRYPTION_128);
+				}
+
 			} else {
-				pdfs.setEncryption(password.getBytes(),
-						ownerPassword.getBytes(), i, false);
+				if (optionCombo.equals("Allow user pdf options")) {
+					pdfs.setEncryption(password.getBytes(),
+							ownerPassword.getBytes(), PdfWriter.ALLOW_PRINTING
+									| PdfWriter.ALLOW_MODIFY_CONTENTS
+									| PdfWriter.ALLOW_COPY
+									| PdfWriter.ALLOW_ASSEMBLY
+									| PdfWriter.ALLOW_FILL_IN
+									| PdfWriter.ALLOW_MODIFY_ANNOTATIONS
+									| PdfWriter.ALLOW_SCREENREADERS,
+							PdfWriter.STANDARD_ENCRYPTION_128);
+				} else {
+					pdfs.setEncryption(password.getBytes(),
+							ownerPassword.getBytes(), 0,
+							PdfWriter.STANDARD_ENCRYPTION_128);
+				}
+
 			}
 			pdfs.close();
 
@@ -69,6 +101,7 @@ public class PDFLocker {
 		writer.writeAll(data);
 
 		writer.close();
+		JOptionPane.showMessageDialog(null, "Task Complete");
 	}
 
 	public String generateLock() {

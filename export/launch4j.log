@@ -1,0 +1,79 @@
+
+
+Version:	3.6
+CmdLine:	F:\projects\PDFLocker\export\PDFLocker_Launcher.exe --l4j-debug
+WOW64:		yes
+Working dir:	F:\projects\PDFLocker\export\.
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7
+Ignore:		1.7
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7.0_72
+Check launcher:	C:\Program Files\Java\jre7\bin\javaw.exe (OK)
+Match:		1.7.0_72
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\jre180\bin\javaw.exe (not found)
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_20
+Check launcher:	C:\jre180\bin\javaw.exe (not found)
+Ignore:		1.8.0_20
+Runtime used:	1.7.0_72 (64-bit)
+Launcher:	C:\Program Files\Java\jre7\bin\javaw.exe
+Launcher args:	-jar "F:\projects\PDFLocker\export\PDFLocker_Launcher.exe"
+Args length:	58/32768 chars
+Exit code:	0
+
+
+Version:	3.6
+CmdLine:	F:\projects\PDFLocker\export\PDFLocker_Launcher.exe --l4j-debug
+WOW64:		yes
+Working dir:	F:\projects\PDFLocker\export\.
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7
+Ignore:		1.7
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7.0_72
+Ignore:		1.7.0_72
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_20
+Check launcher:	C:\jre180\bin\javaw.exe (not found)
+Ignore:		1.8.0_20
+32-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7
+Ignore:		1.7
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7.0_67
+Ignore:		1.7.0_67
+64-bit search:	SOFTWARE\IBM\Java2 Runtime Environment...
+32-bit search:	SOFTWARE\IBM\Java2 Runtime Environment...
+Error msg:	This application requires a Java Runtime Environment 1.8.0
+The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.
+Open URL:	http://java.com/download
+
+
+Version:	3.6
+CmdLine:	F:\projects\PDFLocker\export\PDFLocker_Launcher.exe --l4j-debug
+WOW64:		yes
+Working dir:	F:\projects\PDFLocker\export\.
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7
+Ignore:		1.7
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.7.0_72
+Check launcher:	C:\Program Files\Java\jre7\bin\javaw.exe (OK)
+Match:		1.7.0_72
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\jre180\bin\javaw.exe (not found)
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_20
+Check launcher:	C:\jre180\bin\javaw.exe (not found)
+Ignore:		1.8.0_20
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8
+Check launcher:	C:\Java\jre\bin\javaw.exe (not found)
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_20
+Check launcher:	C:\Java\jre\bin\javaw.exe (not found)
+Ignore:		1.8.0_20
+Runtime used:	1.7.0_72 (64-bit)
+Launcher:	C:\Program Files\Java\jre7\bin\javaw.exe
+Launcher args:	-jar "F:\projects\PDFLocker\export\PDFLocker_Launcher.exe"
+Args length:	58/32768 chars
+Exit code:	0
