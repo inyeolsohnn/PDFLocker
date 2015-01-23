@@ -1,5 +1,11 @@
-import java.util.Random;
+package model;
 
+import java.util.Random;
+//DEPRECATED
+/////////
+/////////////
+////////////
+//////////////
 public class Locker {
 
 	public static void main(String[] args) {
